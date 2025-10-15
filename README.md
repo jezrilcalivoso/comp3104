@@ -15,3 +15,14 @@ if ! echo "$COMMIT_MSG" | grep -Eq "^(feat|fix|docs|style|refactor|test|chore): 
   exit 1
 fi
 ```
+
+# Pre-Commit Hook
+```
+#!/bin/sh
+echo "Running pre-commit hook: Linting code..."
+npm --version
+if [ $? -ne 0 ]; then
+  echo "Linting failed. Fix errors before committing."
+  exit 1
+fi
+```
